@@ -1,0 +1,11 @@
+.reviewItem {
+  display: flex;
+}
+.cartItems {
+  width: 350px;
+}
+
+.product-name {
+  color: blue;
+  font-weight: 400;
+}
