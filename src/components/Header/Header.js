@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from "react-router-dom";
+import { reviewContext } from '../../App';
 import logo from '../../images/logo.png';
 import "./Header.css";
 
 const Header = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(reviewContext)
+
     return (
         <div className="header">
             <img src={logo} alt="logo"  />
@@ -16,8 +19,9 @@ const Header = () => {
                     <Link to="/review">Order Review</Link>
                     </li>
                     <li >
-                    <Link to="/manage">Manage Inventory</Link>
+                    <Link to="/inventory">Manage Inventory</Link>
                     </li>
+                    <button onClick={() => setLoggedInUser({})}>Sign Out</button>
                 </ul>
             </nav>
         </div>

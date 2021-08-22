@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import happyImage from "../.././images/giphy.gif";
 import { reviewContext } from '../../App';
 import Cart from '../Cart/Cart';
@@ -9,12 +10,15 @@ import "./Review.css";
 const Review = (props) => {
     const [handleAddProduct, cart, setCart] = useContext(reviewContext);
 
+    let history = useHistory();
+
     const [orderPlaced, setOrderPlaced] = useState(false)
 
     const handlePlaceOrder = () =>{
-        console.log("order Placed");
-        setCart([])
-        setOrderPlaced(true)
+        // console.log("order Placed");
+        // setCart([])
+        // setOrderPlaced(true)
+        history.push("/shipment");
     }
 
     const removeProduct = (productKey) => {
@@ -43,7 +47,7 @@ const Review = (props) => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart} >
-                    <button onClick={handlePlaceOrder} className="main-button"> Place Order</button>
+                    <button onClick={handlePlaceOrder} className="main-button"> Proceed Checkout</button>
                 </Cart>
             </div>
         </div>
